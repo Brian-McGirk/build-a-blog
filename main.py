@@ -48,7 +48,7 @@ def new_post():
             title_error = "Please fill out the title"
         if not blog_body:
             body_error = "Please fill out the body"
-        if not title_error or not body_error:
+        if not title_error and not body_error:
             new_blog = Blog(blog_title, blog_body)
             db.session.add(new_blog)
             db.session.commit()
