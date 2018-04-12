@@ -21,7 +21,14 @@ class Blog(db.Model):
 
 @app.route("/blog", methods=['POST', 'GET'])
 def blog():
+    blog_id = request.args.get('id')
+    
+    if blog_id:
+        blogs = Blog.query.filter_by(id=blog_id).first()
+        return render_template('entries.html', blogs=blogs)
+
     blogs = Blog.query.all()
+    
     return render_template("blog.html", blogs=blogs)
     
 

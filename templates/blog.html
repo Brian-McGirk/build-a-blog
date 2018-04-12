@@ -7,6 +7,7 @@
     }
 </style>
 
+
 <h1 class="header">Build a Blog</h1>
 
 {% if blogs|length == 0 %}
@@ -14,11 +15,13 @@
         {% else %}
         
             {% for blog in blogs %}
-            <h2>{{blog.title}}</h2>
+            <h2><a href="/blog?id={{blog.id}}">{{blog.title}}</a></h2>
             <p>{{blog.body}}</p>
             <hr />
             {% endfor %}
             
         {% endif %}
+
+
     
 {% endblock %}
