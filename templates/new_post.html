@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    h1 {
+        text-align: center;
+    }
+    .error{
+        color: red;
+    }
+    textarea{
+        width: 15em;
+        height: 7em;
+    }
+    form{
+        margin: 10px;
+    }
+    
+</style>
+
+<h1>Add a Blog Entry</h1>
+
+<form action="/newpost" method="POST">
+   <label>Title for your new blog:<br>
+       <input name="title" type="text" value="{{blog_title}}"/>
+   </label>
+   <div class="error">{{title_error}}</div>
+   <br>
+
+   <label>Your new blog:<br>
+       <textarea name='body' value="{{blog_body}}"></textarea>
+    </label>
+    <div class="error">{{body_error}}</div>
+    <br>
+
+    <input type="submit" value="Add Entry" />
+</form>
+{% endblock %}
